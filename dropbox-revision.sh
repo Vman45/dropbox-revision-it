@@ -18,8 +18,8 @@ case "$1" in
 
 --configure|-c) 
 
-  echo "dropbox-revisioin-it configuration"
-  echo "----------------------------------"
+  echo "dropbox-revision-it configuration"
+  echo "---------------------------------"
   echo ""
 
 
@@ -93,7 +93,7 @@ fi
 if [ -d "$1" ]; then
 
   notify-send "Dropbox-Revision-It!" \
-              "Dropbox only revision control files." \
+              "Dropbox only revisions control files." \
               -i $ICON_WARNING
   exit 113
 
