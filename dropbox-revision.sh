@@ -40,10 +40,10 @@ case "$1" in
 
   eval echo DROPBOX_FOLDER="$DROPBOX_FOLDER" > $CFG_FILE
 
-  read -p "Choose browser [press enter for Google Chrome]: " -e REPLY2
+  read -p "Choose browser [press enter for system default]: " -e REPLY2
 
   if [ -z "$REPLY2" ]; then
-    BROWSER=/usr/bin/google-chrome
+    BROWSER="sensible-browser"
   else
     eval BROWSER="$REPLY2"
   fi
