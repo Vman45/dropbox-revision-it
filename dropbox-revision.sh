@@ -22,6 +22,9 @@ case "$1" in
   echo "---------------------------------"
   echo ""
 
+  read -p "Insert your Dropbox user id: " -e DROPBOX_UID
+
+  echo DROPBOX_UID=$DROPBOX_UID > $CFG_FILE
 
   read -p "Insert Dropbox folder location [press enter for ~/Dropbox]: " -e REPLY1
 
@@ -38,7 +41,7 @@ case "$1" in
     exit 113
   fi
 
-  eval echo DROPBOX_FOLDER="$DROPBOX_FOLDER" > $CFG_FILE
+  eval echo DROPBOX_FOLDER="$DROPBOX_FOLDER" >> $CFG_FILE
 
   read -p "Choose browser [press enter for system default]: " -e REPLY2
 
@@ -107,7 +110,7 @@ FULLFILEPATH=`ls -1 $(pwd)/"$1"`
 
 STRIPED_PATH=`echo "$FULLFILEPATH" | sed -E "s|$DROPBOX_FOLDER/||g"`
 
-RAWURL="https://www.dropbox.com/revisions/$STRIPED_PATH"
+RAWURL="https://www.dropbox.com/revisions/$STRIPED_PATH/?_subject_uid=$DROPBOX_UID"
 URL=`echo "$RAWURL" | \
      sed -E 's/ /%20/g'`
 
