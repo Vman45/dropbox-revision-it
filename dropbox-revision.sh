@@ -106,7 +106,7 @@ fi
 source $CFG_FILE
 
 # Get file full path
-FULLFILEPATH=`ls -1 $(pwd)/"$1"`
+FULLFILEPATH=`ls -1 "$(pwd)"/"$1"`
 
 STRIPED_PATH=`echo "$FULLFILEPATH" | sed -E "s|$DROPBOX_FOLDER/||g"`
 
